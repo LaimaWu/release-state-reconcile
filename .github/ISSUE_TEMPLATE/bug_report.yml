@@ -1,0 +1,46 @@
+name: Bug report
+description: Report incorrect behavior or an evidence-calibration problem.
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: Remove tokens, private URLs, and confidential logs before submitting.
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      placeholder: 0.1.0
+    validations:
+      required: true
+  - type: textarea
+    id: behavior
+    attributes:
+      label: Observed behavior
+      description: What state or evidence was reported?
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: Explain the expected calibrated state and why.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction
+      description: Include the command, redacted configuration, and public evidence URLs.
+      render: shell
+    validations:
+      required: true
+  - type: dropdown
+    id: writes
+    attributes:
+      label: Did any GitHub write occur?
+      options:
+        - "No"
+        - "Yes or uncertain — possible security issue"
+    validations:
+      required: true

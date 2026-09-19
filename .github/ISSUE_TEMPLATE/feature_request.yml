@@ -1,0 +1,28 @@
+name: Feature request
+description: Propose a scoped improvement.
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What release-state reconciliation problem should be solved?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed behavior
+      description: Describe inputs, evidence, output states, and uncertainty handling.
+    validations:
+      required: true
+  - type: checkboxes
+    id: boundaries
+    attributes:
+      label: Scope checks
+      options:
+        - label: The proposal can preserve read-only GitHub access.
+          required: true
+        - label: The proposal does not replace human release eligibility or quality judgment.
+          required: true
