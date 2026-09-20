@@ -8,9 +8,39 @@ Given one public GitHub repository, one selected release candidate, and one rele
 
 Release state is often spread across an issue, one or more pull requests, CI checks, changed files, maintenance branches, and release tags. This tool assembles those public facts into one deterministic report and keeps uncertainty explicit. It supports investigation and review; it does not make release decisions.
 
-## Install
+## Installation
 
 Python 3.10 or newer is required.
+
+### Stable GitHub release
+
+Install the verified wheel attached to the `v0.1.0` GitHub Release:
+
+```bash
+python -m pip install https://github.com/LaimaWu/release-state-reconcile/releases/download/v0.1.0/release_state_reconcile-0.1.0-py3-none-any.whl
+```
+
+### Tagged Git source
+
+Alternatively, install from the exact `v0.1.0` tag:
+
+```bash
+python -m pip install "git+https://github.com/LaimaWu/release-state-reconcile.git@v0.1.0"
+```
+
+If you use `pipx`, the same tagged source can be installed as an isolated CLI application:
+
+```bash
+pipx install "git+https://github.com/LaimaWu/release-state-reconcile.git@v0.1.0"
+```
+
+### PyPI status
+
+PyPI distribution is planned but not yet available. Do not use `pip install release-state-reconcile` until the package is published on PyPI.
+
+### Contributor and development install
+
+From a source checkout, contributors can retain an editable installation:
 
 ```bash
 python -m pip install -e .
