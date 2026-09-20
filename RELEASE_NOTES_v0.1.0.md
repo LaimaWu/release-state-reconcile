@@ -1,6 +1,6 @@
 # Release Notes — v0.1.0
 
-Initial public-source release candidate.
+Initial public release.
 
 ## Included
 
