@@ -26,6 +26,10 @@ classifiers = [
 ]
 dependencies = []
 
+[project.urls]
+Repository = "https://github.com/LaimaWu/release-state-reconcile"
+Issues = "https://github.com/LaimaWu/release-state-reconcile/issues"
+
 [project.scripts]
 release-state-reconcile = "release_state_reconcile.cli:main"
 
