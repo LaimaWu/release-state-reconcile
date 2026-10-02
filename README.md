@@ -14,11 +14,13 @@ Python 3.10 or newer is required.
 
 ### PyPI
 
-Install the stable release from PyPI:
+The current public version, `0.1.0`, is published and installable from PyPI:
 
 ```bash
 pip install release-state-reconcile
 ```
+
+Historical text embedded in the original `0.1.0` distribution or `v0.1.0` tag may reflect pre-publication setup. The current default-branch onboarding and trial instructions describe the present installation path.
 
 ### GitHub Release wheel
 
@@ -80,13 +82,12 @@ Each observation carries a public source URL, object type, object ID, observed s
 
 ## Configuration
 
-Repository conventions live in JSON rather than source code. A minimal configuration looks like this:
+Repository conventions live in JSON rather than source code. Copy this minimal configuration into `repository.json` and adapt the example branch, tag, path, and label values to your repository:
 
 ```json
 {
   "mainline_branch": "main",
   "backport": {"required": true, "search": true},
-  "completion": {"closed_is_complete": true, "labels": []},
   "verification_labels": ["verified"],
   "release_note": {"path_globs": ["changes/**"]},
   "release": {"tag_regex": "^v1\\.2\\.[0-9]+$", "max_releases": 10}
@@ -94,6 +95,14 @@ Repository conventions live in JSON rather than source code. A minimal configura
 ```
 
 The selected release branch is always supplied explicitly on the command line. Configuration may describe the default branch, whether a backport is expected, repository-specific verification labels, release-note paths, and the release-tag convention.
+
+Candidate completion state is derived from the GitHub Issue state and `state_reason`: a closed candidate with `completed` is complete, `not_planned` is not a completion claim, and an unclear closure reason remains `UNKNOWN`. The previously displayed `completion.closed_is_complete` and `completion.labels` keys are not supported configuration overrides.
+
+## External trial / feedback
+
+OSS maintainers and contributors are invited to try RSR on a release-management task they genuinely handle. Choose your own public GitHub candidate (Issue or PR) and release branch/line, adapt the configuration above, and run the documented CLI. Share your version, actual command, redacted configuration, report or error output, and concrete feedback through the [trial feedback Issue form](https://github.com/LaimaWu/release-state-reconcile/issues/new?template=trial_feedback.yml).
+
+Successful, failed, incomplete/`UNKNOWN`, and misleading results are all useful; no positive review is requested. Reports support investigation and do not decide release eligibility, change risk, or approval. Remove tokens, private URLs, and confidential logs before posting.
 
 ## Scope and non-goals
 

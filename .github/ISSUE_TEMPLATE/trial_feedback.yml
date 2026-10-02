@@ -1,0 +1,85 @@
+name: Trial feedback
+description: Share a release-management trial, including failed or incomplete results.
+title: "[Trial]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Successful, failed, incomplete/UNKNOWN, and misleading results are welcome. No positive review is requested.
+        Remove tokens, private URLs, and confidential logs before posting. RSR supports investigation; it does not decide release eligibility, change risk, or approval.
+  - type: input
+    id: version
+    attributes:
+      label: RSR version
+      description: If installation failed before you could determine the version, say so.
+      placeholder: 0.1.0
+    validations:
+      required: true
+  - type: dropdown
+    id: relationship
+    attributes:
+      label: Your relationship to the tested project
+      description: If Other, describe your relationship in the feedback below.
+      options:
+        - Maintainer
+        - Contributor
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: candidate
+    attributes:
+      label: Public candidate Issue or PR URL
+      description: The candidate you chose for your release-management task.
+      placeholder: https://github.com/OWNER/REPOSITORY/issues/123
+    validations:
+      required: true
+  - type: input
+    id: release_line
+    attributes:
+      label: Release branch or line
+      placeholder: release/1.2
+    validations:
+      required: true
+  - type: textarea
+    id: command
+    attributes:
+      label: Actual command
+      description: Remove tokens and private paths or URLs.
+      render: shell
+    validations:
+      required: true
+  - type: textarea
+    id: configuration
+    attributes:
+      label: Redacted configuration
+      description: Include the repository JSON you used; if you could not create one, say so.
+      render: json
+    validations:
+      required: true
+  - type: dropdown
+    id: result
+    attributes:
+      label: Result
+      options:
+        - Successful/useful
+        - Incomplete or mostly UNKNOWN
+        - Failed to run
+        - Misleading/incorrect
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: output
+    attributes:
+      label: Report or output excerpt
+      description: Paste a relevant report excerpt or error output. If no output was produced, you can leave this blank.
+    validations:
+      required: false
+  - type: textarea
+    id: feedback
+    attributes:
+      label: Concrete feedback
+      description: What helped, what was missing or misleading, or why did it have no value for your task?
+    validations:
+      required: true
